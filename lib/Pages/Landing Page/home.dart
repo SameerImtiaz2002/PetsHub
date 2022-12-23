@@ -21,10 +21,7 @@ class Home extends StatelessWidget {
             child: const Center(
               child: Text(
                 'PetsHub',
-                style: TextStyle(
-                    // color: Colors.blue,
-                    fontSize: 35,
-                    fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.w700),
               ),
             ),
           ),
@@ -40,10 +37,7 @@ class Home extends StatelessWidget {
           const Center(
             child: Text(
               "MARKETPLACE & BREED SCANNER FOR PETS ",
-              style: TextStyle(
-                  // color: Colors.blue,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
             ),
           ),
           Row(

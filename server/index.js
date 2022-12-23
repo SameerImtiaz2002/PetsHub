@@ -1,21 +1,21 @@
-//  IMPORT FROM OTHER PACKAGES
+//  IMPORT FROM OTHER PACKAGES  //
 const express = require("express");
 const mongoose = require("mongoose");
 
-//  IMPORT FROM OTHER FILES
+//  IMPORT FROM OTHER FILES  //
 const authRouter = require("./routes/auth.js");
 
-//  INITILIZATION
+//////////  INITILIZATION  //////////
 const app = express();
 const PORT = 3000;
 const DB = "mongodb+srv://petshub:petshub007@cluster1.g3wxjkk.mongodb.net/?retryWrites=true&w=majority"
 mongoose.set('strictQuery', true);
 
-//  MIDDLEWARE
+//////////  MIDDLEWARE  //////////
 app.use(express.json())
 app.use("/auth", authRouter);
 
-//  CONNECTIONS
+//////////  CONNECTIONS  //////////
 mongoose
     .connect(DB)
     .then( function() {

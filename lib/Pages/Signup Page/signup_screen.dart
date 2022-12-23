@@ -9,10 +9,10 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreen extends State<SignUpScreen> {
-  //form key
+  //////////  FORMKEY  //////////
   final _formkey = GlobalKey<FormState>();
 
-  //editing controller
+  //////////  EDITING  CONTROLLERS  //////////
   final TextEditingController firstnameController = TextEditingController();
   final TextEditingController lastnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -22,11 +22,11 @@ class _SignUpScreen extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    //////////  FIRST NAME FIELD  //////////
     final firstnameField = TextFormField(
       autofocus: false,
       controller: firstnameController,
       keyboardType: TextInputType.text,
-      // validator: (){},
       onSaved: (value) {
         firstnameController.text = value!;
       },
@@ -39,11 +39,12 @@ class _SignUpScreen extends State<SignUpScreen> {
             borderRadius: BorderRadius.circular(10),
           )),
     );
+
+    ////////// LAST NAME FIELD  //////////
     final lastnameField = TextFormField(
       autofocus: false,
       controller: lastnameController,
       keyboardType: TextInputType.text,
-      // validator: (){},
       onSaved: (value) {
         lastnameController.text = value!;
       },
@@ -56,12 +57,12 @@ class _SignUpScreen extends State<SignUpScreen> {
             borderRadius: BorderRadius.circular(10),
           )),
     );
-    //email field
+
+    //////////  EMAIL FIELD  //////////
     final emailField = TextFormField(
       autofocus: false,
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
-      // validator: (){},
       onSaved: (value) {
         emailController.text = value!;
       },
@@ -75,12 +76,11 @@ class _SignUpScreen extends State<SignUpScreen> {
           )),
     );
 
-    //password field
+    //////////  PASSWORD FIELD  //////////
     final passwordField = TextFormField(
       autofocus: false,
       controller: passwordController,
       obscureText: true,
-      // validator: (){},
       onSaved: (value) {
         passwordController.text = value!;
       },
@@ -93,11 +93,12 @@ class _SignUpScreen extends State<SignUpScreen> {
             borderRadius: BorderRadius.circular(10),
           )),
     );
+
+    ////////// CONFIRM PASSWORD FIELD  //////////
     final confirmpasswordField = TextFormField(
       autofocus: false,
       controller: confirmpasswordController,
       obscureText: true,
-      // validator: (){},
       onSaved: (value) {
         confirmpasswordController.text = value!;
       },
@@ -111,8 +112,8 @@ class _SignUpScreen extends State<SignUpScreen> {
           )),
     );
 
-    //login field
-    final loginButton = Material(
+    //////////  SIGNUP BUTTON  //////////
+    final signUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
       color: Colors.black,
@@ -132,7 +133,7 @@ class _SignUpScreen extends State<SignUpScreen> {
       ),
     );
 
-    //SCAFFOLD
+    //////////  SCAFFOLD  //////////
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -144,66 +145,66 @@ class _SignUpScreen extends State<SignUpScreen> {
               child: Form(
                 key: _formkey,
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      // Text('Sign Up'),
-                      SizedBox(
-                        height: 220,
-                        child: Image.asset(
-                          "assets/signup_image.png",
-                          fit: BoxFit.contain,
-                        ),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    // Text('Sign Up'),
+                    SizedBox(
+                      height: 220,
+                      child: Image.asset(
+                        "assets/signup_image.png",
+                        fit: BoxFit.contain,
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      firstnameField,
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      lastnameField,
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      emailField,
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      passwordField,
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      confirmpasswordField,
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      loginButton,
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Text("Already have an account? "),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const LoginScreen()));
-                            },
-                            child: const Text(
-                              "Login",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15),
-                            ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    firstnameField,
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    lastnameField,
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    emailField,
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    passwordField,
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    confirmpasswordField,
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    signUpButton,
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        const Text("Already have an account? "),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginScreen()));
+                          },
+                          child: const Text(
+                            "Login",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15),
                           ),
-                        ],
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),

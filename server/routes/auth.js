@@ -1,20 +1,20 @@
-//  IMPORT FROM OTHER FILES
+//  IMPORT FROM OTHER FILES  //
 const User = require("../models/user");
 
-//  IMPORT FROM OTHER PACKAGES
+//  IMPORT FROM OTHER PACKAGES  //
 const express = require("express");
 const bcryptjs = require("bcryptjs");
 const jwt= require("jsonwebtoken");
 const authRouter = express.Router();
 
-//  EXPORTING
+//////////  EXPORTING  //////////
 module.exports = authRouter;
 
 authRouter.get("/user", (res) => {
     res.json( {name: "PetsHub"});
 })
 
-//  SIGNUP API
+//////////  SIGNUP API  //////////
 authRouter.post("/api/signup", async function(req, res) {
     try{
         const { firstname, lastname , email, password } = req.body;
@@ -41,7 +41,7 @@ authRouter.post("/api/signup", async function(req, res) {
     }
 });
 
-//  SIGNIN API
+//////////  SIGNIN API  //////////
 authRouter.post("/api/signin", async (req, res) => {
     try{
      const {email, password} = req.body;

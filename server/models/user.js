@@ -1,7 +1,7 @@
-//  IMPORT FROM PACKAGES
+/////  IMPORT FROM PACKAGES  /////
 mongoose = require("mongoose");
 
-//  INITILIZATION
+//////////  INITILIZATION  //////////
 const userSchema = mongoose.Schema({
     firstname: {
         required: true,
@@ -37,7 +37,7 @@ const userSchema = mongoose.Schema({
     },
 });
 
-//  EXPORTING
+//////////  EXPORTING  //////////
 const User = mongoose.model("User", userSchema);
 module.exports = User;
 

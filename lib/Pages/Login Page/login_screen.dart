@@ -9,21 +9,20 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  //form key
+  //////////  FORM KEY  //////////
   final _formkey = GlobalKey<FormState>();
 
-  //editing controller
+  //////////  EDITING CONTROLLERS  //////////
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    //email field
+    //////////  EMAIL FIELD  //////////
     final emailField = TextFormField(
       autofocus: false,
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
-      // validator: (){},
       onSaved: (value) {
         emailController.text = value!;
       },
@@ -37,12 +36,11 @@ class _LoginScreenState extends State<LoginScreen> {
           )),
     );
 
-    //password field
+    //////////  PASSWORD FIELD  //////////
     final passwordField = TextFormField(
       autofocus: false,
       controller: passwordController,
       obscureText: true,
-      // validator: (){},
       onSaved: (value) {
         passwordController.text = value!;
       },
@@ -56,17 +54,14 @@ class _LoginScreenState extends State<LoginScreen> {
           )),
     );
 
-    //login field
+    //////////  LOGIN BUTTON  //////////
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
       color: Colors.black,
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        minWidth: MediaQuery
-            .of(context)
-            .size
-            .width,
+        minWidth: MediaQuery.of(context).size.width,
         onPressed: () {},
         child: const Text(
           "Login",
@@ -80,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
 
-    //SCAFFOLD
+    //////////  SCAFFOLD  //////////
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -128,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                      const SignUpScreen()));
+                                          const SignUpScreen()));
                             },
                             child: const Text(
                               "Signup",
