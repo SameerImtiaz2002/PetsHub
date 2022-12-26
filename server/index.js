@@ -8,7 +8,7 @@ const authRouter = require("./routes/auth.js");
 //////////  INITILIZATION  //////////
 const app = express();
 const PORT = 3000;
-const DB = "mongodb+srv://petshub:petshub007@cluster1.g3wxjkk.mongodb.net/?retryWrites=true&w=majority"
+const DB = "mongodb+srv://petshub:petshub007@cluster.zbz3mon.mongodb.net/?retryWrites=true&w=majority"
 mongoose.set('strictQuery', true);
 
 //////////  MIDDLEWARE  //////////
@@ -19,7 +19,7 @@ app.use("/auth", authRouter);
 mongoose
     .connect(DB)
     .then( function() {
-        console.log("Connection Successful");
+        console.log("CONNECTION SUCCESSFUL");
     })
     .catch( function(e) {
         console.log(e);
@@ -28,4 +28,3 @@ mongoose
 app.listen(PORT, "0.0.0.0", function() {
     console.log("CONNECTED AT PORT: " + PORT);
 });
-

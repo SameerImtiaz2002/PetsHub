@@ -5,7 +5,7 @@ import 'package:petshub/Constants/utils.dart';
 import 'package:petshub/Constants/error_handling.dart';
 import 'package:petshub/Constants/global_variables.dart';
 
-class AuthService {
+class SignupAuthService {
   void signupUser({
     required BuildContext context,
     required String firstname,

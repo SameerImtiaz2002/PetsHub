@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:petshub/Constants/utils.dart';
+import 'package:petshub/constants/utils.dart';
 import 'package:http/http.dart' as http;
 
 void httpErrorHandle({

@@ -43,14 +43,13 @@ class User {
 
   factory User.fromJson(String source) => User.fromMap(json.decode(source));
 
-  User copyWith({
-    String? id,
-    String? firstname,
-    String? lastname,
-    String? email,
-    String? password,
-    String? token,
-  }) {
+  User copyWith(
+      {String? id,
+      String? firstname,
+      String? lastname,
+      String? email,
+      String? password,
+      String? token}) {
     return User(
       id: id ?? this.id,
       firstname: firstname ?? this.firstname,

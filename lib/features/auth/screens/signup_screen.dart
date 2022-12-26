@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../Login Page/login_screen.dart';
+import 'package:petshub/features/auth/screens/login_screen.dart';
+import 'package:petshub/features/auth/services/signup_service.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreen extends State<SignUpScreen> {
   //////////  FORMKEY  //////////
-  final _formkey = GlobalKey<FormState>();
+  final _signupformkey = GlobalKey<FormState>();
 
   //////////  EDITING  CONTROLLERS  //////////
   final TextEditingController firstnameController = TextEditingController();
@@ -19,6 +20,19 @@ class _SignUpScreen extends State<SignUpScreen> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmpasswordController =
       TextEditingController();
+
+  ////////// EDITING AUTH SERVICE //////////
+  final SignupAuthService authService = SignupAuthService();
+
+  ////////// GETTING AUTH SERVICE //////////
+  void signupUser() {
+    authService.signupUser(
+        context: context,
+        firstname: firstnameController.text,
+        lastname: lastnameController.text,
+        email: emailController.text,
+        password: passwordController.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,19 +132,22 @@ class _SignUpScreen extends State<SignUpScreen> {
       borderRadius: BorderRadius.circular(30),
       color: Colors.black,
       child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {},
-        child: const Text(
-          "Signup",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          minWidth: MediaQuery.of(context).size.width,
+          onPressed: () {
+            if (_signupformkey.currentState!.validate()) {
+              signupUser();
+            }
+          },
+          child: const Text(
+            "Signup",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          )),
     );
 
     //////////  SCAFFOLD  //////////
@@ -143,7 +160,7 @@ class _SignUpScreen extends State<SignUpScreen> {
             child: Padding(
               padding: const EdgeInsets.all(36.0),
               child: Form(
-                key: _formkey,
+                key: _signupformkey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

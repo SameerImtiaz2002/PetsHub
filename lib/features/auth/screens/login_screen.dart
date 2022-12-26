@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../Signup Page/signup_screen.dart';
+import 'package:petshub/features/auth/screens/signup_screen.dart';
+import 'package:petshub/features/auth/services/login_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,11 +11,22 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   //////////  FORM KEY  //////////
-  final _formkey = GlobalKey<FormState>();
+  final _loginformkey = GlobalKey<FormState>();
 
   //////////  EDITING CONTROLLERS  //////////
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  ////////// EDITING AUTH SERVICE //////////
+  final LoginAuthService authService = LoginAuthService();
+
+  ////////// GETTING AUTH SERVICE //////////
+  void loginUser() {
+    authService.loginUser(
+        context: context,
+        email: emailController.text,
+        password: passwordController.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +74,11 @@ class _LoginScreenState extends State<LoginScreen> {
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {},
+        onPressed: () {
+          if (_loginformkey.currentState!.validate()) {
+            loginUser();
+          }
+        },
         child: const Text(
           "Login",
           textAlign: TextAlign.center,
@@ -86,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.only(
                   top: 20, bottom: 100, left: 36, right: 36),
               child: Form(
-                key: _formkey,
+                key: _loginformkey,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
